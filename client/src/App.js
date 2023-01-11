@@ -1,10 +1,19 @@
 import React from "react";
+import { useEffect } from "react";
 import { Container, AppBar, Typography, Grow, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import Form from "./components/FORM/Form";
 import Posts from "./components/POSTS/Posts";
+import { useDispatch } from "react-redux";
+import { getPost } from "./redux/Posts/actions/Post";
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPost());
+  }, [dispatch]);
+
   return (
     <Container maxWidth="lg">
       <AppBar

@@ -52,7 +52,7 @@ const Form = () => {
         <TextField
           name="tags"
           variant="outlined"
-          label="Tags (coma separated)"
+          label="Tags"
           fullWidth
           value={postData.tags}
           onChange={(e) =>
