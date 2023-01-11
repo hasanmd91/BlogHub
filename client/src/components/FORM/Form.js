@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { createPost, updatePost } from "../../redux/Posts/actions/Post";
 import { useSelector } from "react-redux";
 
-const Form = ({ currentId }) => {
+const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
     creator: "",
     title: "",
@@ -25,19 +25,20 @@ const Form = ({ currentId }) => {
     }
   }, [post]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!currentId) {
-      dispatch(createPost(postData));
-    } else {
+    if (currentId) {
       dispatch(updatePost(currentId, postData));
+    } else {
+      dispatch(createPost(postData));
     }
 
     clearHandeler();
   };
 
   const clearHandeler = () => {
+    setCurrentId(null);
     setPostData({
       creator: "",
       title: "",
