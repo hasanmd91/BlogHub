@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TextField, Button, Typography, Paper } from "@mui/material";
 import FileBase64 from "react-filebase64";
+import { useDispatch } from "react-redux";
+import { createPost, updatePost } from "../../redux/Posts/actions/Post";
+import { useSelector } from "react-redux";
 
-const Form = () => {
+const Form = ({ currentId }) => {
   const [postData, setPostData] = useState({
     creator: "",
     title: "",
@@ -11,8 +14,37 @@ const Form = () => {
     selectedFile: "",
   });
 
+  const post = useSelector((state) =>
+    currentId ? state.posts.find((p) => p._id === currentId) : null
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (post) {
+      setPostData(post);
+    }
+  }, [post]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!currentId) {
+      dispatch(createPost(postData));
+    } else {
+      dispatch(updatePost(currentId, postData));
+    }
+
+    clearHandeler();
+  };
+
+  const clearHandeler = () => {
+    setPostData({
+      creator: "",
+      title: "",
+      message: "",
+      tags: "",
+      selectedFile: "",
+    });
   };
 
   return (
@@ -84,6 +116,7 @@ const Form = () => {
           size="small"
           fullWidth
           sx={{ marginBottom: "10px" }}
+          onClick={clearHandeler}
         >
           Clear
         </Button>

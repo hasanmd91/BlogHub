@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Container, AppBar, Typography, Grow, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import Form from "./components/FORM/Form";
@@ -8,7 +8,11 @@ import { useDispatch } from "react-redux";
 import { getPost } from "./redux/Posts/actions/Post";
 
 const App = () => {
+  const [currentId, setCurrentId] = useState(null);
+
   const dispatch = useDispatch();
+
+  console.log(currentId);
 
   useEffect(() => {
     dispatch(getPost());
@@ -52,10 +56,10 @@ const App = () => {
             spacing={3}
           >
             <Grid item xs={12} sm={7}>
-              <Posts />
+              <Posts setCurrentId={setCurrentId} />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Form />
+              <Form currentId={currentId} />
             </Grid>
           </Grid>
         </Container>

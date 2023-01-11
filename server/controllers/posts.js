@@ -22,3 +22,16 @@ export const createPost = async (req, res) => {
     res.status(409).json({ message: error.message });
   }
 };
+
+// export const updatedPost = async (req, res) => {
+//   const { id } = req.params;
+//   const { creator, title, message, tags, selectedFile, _id: id  } = req.body;
+
+//   const newPost =
+
+//   try {
+//     const updatedPost = postMessage.findByIdAndUpdate(_id, {});
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };

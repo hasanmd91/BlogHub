@@ -13,8 +13,12 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import moment from "moment";
 import useStyles from "./styles";
 
-const Post = ({ post }) => {
+const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
+
+  const editHandeler = () => {
+    setCurrentId(post._id);
+  };
 
   return (
     <Card className={classes.card}>
@@ -33,7 +37,7 @@ const Post = ({ post }) => {
         </Typography>
       </div>
       <div className={classes.overlay2}>
-        <Button style={{ color: "white" }} size="small" onClick={() => {}}>
+        <Button style={{ color: "white" }} size="small" onClick={editHandeler}>
           <MoreHorizIcon fontSize="default" />
         </Button>
       </div>
