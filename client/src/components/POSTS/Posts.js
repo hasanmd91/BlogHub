@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Grid } from "@mui/material";
 import Post from "../POSTS/POST/Post";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getPost } from "../../redux/Posts/actions/Post";
 
 const Posts = () => {
   const posts = useSelector((state) => state.posts);
+  const distpatch = useDispatch();
+
   console.log(posts);
+
+  useEffect(() => {
+    distpatch(getPost());
+  }, []);
 
   return (
     <Grid container alignItems="stretch" spacing={3}>
