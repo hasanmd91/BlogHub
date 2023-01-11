@@ -1,6 +1,8 @@
 import React from "react";
 import { Container, AppBar, Typography, Grow, Grid } from "@mui/material";
 import { Box } from "@mui/system";
+import Form from "./components/FORM/Form";
+import Posts from "./components/POSTS/Posts";
 
 const App = () => {
   return (
@@ -41,10 +43,10 @@ const App = () => {
             spacing={3}
           >
             <Grid item xs={12} sm={7}>
-              {/* <Posts /> */}
+              <Posts />
             </Grid>
             <Grid item xs={12} sm={4}>
-              {/* <Form /> */}
+              <Form />
             </Grid>
           </Grid>
         </Container>
