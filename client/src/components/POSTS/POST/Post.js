@@ -15,7 +15,7 @@ import useStyles from "./styles";
 import { useDispatch } from "react-redux";
 import { deletePost, createLike } from "../../../redux/Posts/actions/Post";
 
-const Post = ({ post, setCurrentId, createLike }) => {
+const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -63,7 +63,11 @@ const Post = ({ post, setCurrentId, createLike }) => {
         </Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" onClick={() => {}}>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => dispatch(createLike(post._id))}
+        >
           <ThumbUpAltIcon fontSize="small" /> Like {post.likeCount}{" "}
         </Button>
         <Button
