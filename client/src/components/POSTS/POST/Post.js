@@ -13,9 +13,9 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import moment from "moment";
 import useStyles from "./styles";
 import { useDispatch } from "react-redux";
-import { deletePost } from "../../../redux/Posts/Api";
+import { deletePost, createLike } from "../../../redux/Posts/actions/Post";
 
-const Post = ({ post, setCurrentId }) => {
+const Post = ({ post, setCurrentId, createLike }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
