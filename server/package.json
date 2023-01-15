@@ -5,7 +5,7 @@
   "type": "module",
   "description": "none",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "body-parser": "^1.20.1",
