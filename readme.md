@@ -1,6 +1,6 @@
 # Memory
 
-Memory is a life event-sharing app that allows users to share their memories and
+Blog Hub is a event-sharing app that allows users to share their memories and
 experiences with others. The app is built on the MERN stack (MongoDB, Express.js,
 React, and Node.js) which provides a stable and efficient framework for the app's
 development. Users can create posts, add photos, and share their memories
