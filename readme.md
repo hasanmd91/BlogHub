@@ -1,4 +1,4 @@
-# Memory
+# Blog Hub
 
 Blog Hub is a event-sharing app that allows users to share their memories and
 experiences with others. The app is built on the MERN stack (MongoDB, Express.js,
