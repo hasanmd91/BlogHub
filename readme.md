@@ -1,11 +1,11 @@
 # Blog Hub
 
-Blog Hub is a event-sharing app that allows users to share their memories and
+BlogHub is a event-sharing app that allows users to share their memories and
 experiences with others. The app is built on the MERN stack (MongoDB, Express.js,
 React, and Node.js) which provides a stable and efficient framework for the app's
 development. Users can create posts, add photos, and share their memories
 with their friends and family. Additionally, the app has a clean and user-friendly interface, making it easy for
-anyone to use. Memory can be a great way to document, preserve and share life events
+anyone to use. Bloghub can be a great way to document, preserve and share life events
 and memories with others. This app is in a continuous development process. User Authentication will be added soon.
 
 ## Tech Stack
