@@ -28,7 +28,7 @@ and memories with others. This app is in a continuous development process. User 
 
 ## Screenshots
 
-![User interface](images/memory.png)
+![User interface](images/Bloghub.png)
 
 ## Author
 
