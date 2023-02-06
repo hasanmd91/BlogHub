@@ -35,7 +35,7 @@ const App = () => {
           align="center"
           sx={{ color: "rgba(0,183,255, 1)" }}
         >
-          Memories
+          Bloghub
         </Typography>
         <Box sx={{ marginLeft: "15px" }}>
           <img
