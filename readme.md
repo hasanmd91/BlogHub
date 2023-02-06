@@ -28,6 +28,8 @@ and memories with others. This app is in a continuous development process. User 
 
 ## Screenshots
 
+![User interface](images/memory.png)
+
 ## Author
 
 - @Hasan Md
