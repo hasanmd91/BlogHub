@@ -24,7 +24,7 @@ and memories with others. This app is in a continuous development process. User 
 
 ## Demo
 
-[Live Link](https://memorysharing.netlify.app/)
+[Live Link](https://bloghubhasan.netlify.app/)
 
 ## Screenshots
 

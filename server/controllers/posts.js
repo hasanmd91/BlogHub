@@ -1,15 +1,19 @@
 import mongoose from "mongoose";
 import postMessage from "../models/postsMessage.js";
 
+// getAll posts
+
 export const getPosts = async (req, res) => {
   try {
     const postMessages = await postMessage.find();
 
     res.status(200).json(postMessages);
   } catch (error) {
-    res.status(200).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
+
+// create new posts
 
 export const createPost = async (req, res) => {
   const post = req.body;
@@ -20,9 +24,11 @@ export const createPost = async (req, res) => {
 
     res.status(201).json(newPost);
   } catch (error) {
-    res.status(409).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
+
+// update a posts
 
 export const updatePost = async (req, res) => {
   const { id: _id } = req.params;
@@ -42,9 +48,11 @@ export const updatePost = async (req, res) => {
     );
     res.json(updatedPost);
   } catch (error) {
-    console.log(error);
+    res.status(500).json({ message: error.message });
   }
 };
+
+// delete a posts
 
 export const deletePost = async (req, res) => {
   const { id } = req.params;
@@ -55,19 +63,21 @@ export const deletePost = async (req, res) => {
     await postMessage.findByIdAndDelete(id);
     res.json({ message: "post deleted sucessfully" });
   } catch (error) {
-    console.log(error);
+    res.status(500).json({ message: error.message });
   }
 };
+
+// like posts
 
 export const likePost = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id))
-    return res.status(404).send("no posts with that id ");
+    return res.status(400).json({ message: "Invalid post id provided" });
 
   try {
     const post = await postMessage.findById(id);
-    const updatelike = await postMessage.findByIdAndUpdate(
+    const updatedPost = await postMessage.findByIdAndUpdate(
       id,
       {
         likeCount: post.likeCount + 1,
@@ -75,8 +85,8 @@ export const likePost = async (req, res) => {
       { new: true }
     );
 
-    res.json(updatelike);
+    res.json(updatedPost);
   } catch (error) {
-    console.log(error);
+    res.status(500).json({ message: error.message });
   }
 };
